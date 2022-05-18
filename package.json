@@ -1,0 +1,19 @@
+{
+	"name": "whois",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"boxen": "^6.2.1",
+		"chalk": "^5.0.1",
+		"graphql-request": "^4.2.0",
+		"terminal-link": "^3.0.0"
+	}
+}
