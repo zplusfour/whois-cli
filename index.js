@@ -6,6 +6,7 @@ import chalk from 'chalk';
 import { getData } from './src/client.js';
 
 const argv = process.argv.slice(2);
+var IS_ON_REPLIT = process.env['REPL_OWNER'] ? true : false; // yeah
 
 const box = (str, i) => {
 	if (i === 'success') {
