@@ -9,7 +9,7 @@ const argv = process.argv.slice(2);
 
 const box = (str, i) => {
 	if (i === 'success') {
-		console.log(boxen(chalk.green(str), { padding: 1, margin: 1, borderStyle: 'round' }));
+		console.log(boxen(chalk.cyan(str), { padding: 1, margin: 1, borderStyle: 'round' }));
 	} else if (i === 'error') {
 		console.log(boxen(chalk.red(str), { padding: 1, margin: 1, borderStyle: 'round' }));
 	} else {
@@ -28,9 +28,9 @@ if (argv[0]) {
 			} else {
 				if (!terminalLink.isSupported) {
 					box(
-						`${chalk.bold('@' + d.username)}#${chalk.grey(d.id)} ${d.isVerified ? '✔' : '❌'} ${
-							d.firstName ? `aka ${chalk.grey(d.firstName)}` : ''
-						}\nCreated on: ${chalk.grey(
+						`${chalk.bold('@' + d.username)}#${chalk.grey(d.id)} ${
+							d.isVerified ? chalk.green('[ Verified ✔ ]') : chalk.green('[ Not verified ❌ ]')
+						} ${d.firstName ? `aka ${chalk.grey(d.firstName)}` : ''}\nCreated on: ${chalk.grey(
 							new Date(d.timeCreated).toLocaleString()
 						)}\nBio: ${chalk.grey(d.bio)}`,
 						'success'
@@ -38,9 +38,9 @@ if (argv[0]) {
 				} else {
 					const userlink = terminalLink('@' + d.username, `https://replit.com${d.url}`);
 					box(
-						`${chalk.bold(userlink)}#${chalk.grey(d.id)} ${d.isVerified ? '✔' : '❌'} ${
-							d.firstName ? `aka ${chalk.grey(d.firstName)}` : ''
-						}\nCreated on: ${chalk.grey(
+						`${chalk.bold(userlink)}#${chalk.grey(d.id)} ${
+							d.isVerified ? chalk.green('[ Verified ✔ ]') : chalk.red('[ Not verified ❌ ]')
+						} ${d.firstName ? `aka ${chalk.grey(d.firstName)}` : ''}\nCreated on: ${chalk.grey(
 							new Date(d.timeCreated).toLocaleString()
 						)}\nBio: ${chalk.grey(d.bio)}`,
 						'success'
